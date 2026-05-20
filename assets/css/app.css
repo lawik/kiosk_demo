@@ -102,4 +102,75 @@
 /* Make LiveView wrapper divs transparent for layout */
 [data-phx-session], [data-phx-teleported-src] { display: contents }
 
+/* Vendored Poppins (Google Fonts, latin subset), served from priv/static/fonts */
+@font-face {
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 100;
+  font-display: swap;
+  src: url("/fonts/Poppins-100.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 200;
+  font-display: swap;
+  src: url("/fonts/Poppins-200.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 300;
+  font-display: swap;
+  src: url("/fonts/Poppins-300.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("/fonts/Poppins-400.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("/fonts/Poppins-500.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url("/fonts/Poppins-600.woff2") format("woff2");
+}
+
+/* Screensaver overlay — slow frost-in (~14s), quick dismiss (~250ms) */
+#screensaver {
+  position: fixed;
+  inset: 0;
+  z-index: 50;
+  pointer-events: none;
+  background-color: rgba(0, 0, 0, 0);
+  backdrop-filter: blur(0px) saturate(100%);
+  -webkit-backdrop-filter: blur(0px) saturate(100%);
+  transition:
+    background-color 250ms ease-out,
+    backdrop-filter 250ms ease-out,
+    -webkit-backdrop-filter 250ms ease-out;
+}
+
+#screensaver.is-active {
+  pointer-events: auto;
+  cursor: pointer;
+  background-color: rgba(0, 0, 0, 0.55);
+  backdrop-filter: blur(36px) saturate(140%);
+  -webkit-backdrop-filter: blur(36px) saturate(140%);
+  transition:
+    background-color 14s ease-out,
+    backdrop-filter 14s ease-out,
+    -webkit-backdrop-filter 14s ease-out;
+}
+
 /* This file is for your main application CSS */

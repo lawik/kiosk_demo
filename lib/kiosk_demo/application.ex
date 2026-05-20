@@ -5,8 +5,6 @@ defmodule KioskDemo.Application do
 
   use Application
 
-  alias Nerves.Runtime.KV
-
   @impl Application
   def start(_type, _args) do
     setup_wifi()
@@ -75,7 +73,7 @@ defmodule KioskDemo.Application do
     end
   else
     defp setup_wifi() do
-      kv = KV.get_all()
+      kv = Nerves.Runtime.KV.get_all()
 
       if true?(kv["wifi_force"]) or not wlan0_configured?() do
         ssid = kv["wifi_ssid"]

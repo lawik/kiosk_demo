@@ -427,28 +427,25 @@ defmodule KioskDemoWeb.CoreComponents do
   @doc """
   Renders a screensaver overlay.
 
+  The overlay is always mounted; pass `:active` to control the blurred
+  state. Transitions slowly into blur (~14s) and quickly back to sharp
+  (~250ms) when dismissed.
+
   ## Examples
 
-      <.screensaver_overlay :if={@screensaver_active} />
+      <.screensaver_overlay active={@screensaver_active} />
   """
+  attr :active, :boolean, default: false
   attr :rest, :global
 
   def screensaver_overlay(assigns) do
     ~H"""
     <div
       id="screensaver"
-      class="fixed inset-0 bg-black z-50 cursor-pointer"
+      class={@active && "is-active"}
       phx-click="user_activity"
-      phx-hook="Screensaver"
       {@rest}
     >
-      <img
-        id="screensaver-logo"
-        src={~p"/images/nerves-logo.svg"}
-        alt="Nerves Logo"
-        class="absolute"
-        style="left: 50%; top: 50%; width: 200px; height: 43px;"
-      />
     </div>
     """
   end
