@@ -62,8 +62,12 @@ defmodule KioskDemo.MixProject do
       {:muontrap, "~> 1.8"},
       {:mix_tasks_upload_hotswap, "~> 0.1.0"},
       {:circuits_gpio, "~> 2.1"},
+      {:circuits_i2c, "~> 2.0"},
       {:dbus, "~> 0.8"},
       {:mobius, "~> 0.6.1"},
+      # PN532 NFC reader over I2C. Fork that statically compiles a vendored
+      # libnfc (pn532_i2c driver) so it cross-compiles for Nerves.
+      {:libnfc_ex, github: "lawik/libnfc_ex", branch: "main"},
 
       # Allow Nerves.Runtime on host to support development, testing and CI.
       # See config/host.exs for usage.

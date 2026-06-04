@@ -44,6 +44,7 @@ defmodule KioskDemo.Application do
         # {KioskDemo.Worker, arg},
         {KioskDemo.UdevdServer, []},
         {KioskDemo.KioskSupervisor, []},
+        {KioskDemo.NFC, []},
         {Task, &start_node/0}
       ]
     end

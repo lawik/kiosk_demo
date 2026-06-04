@@ -17,7 +17,8 @@ defmodule KioskDemoWeb.Router do
   scope "/", KioskDemoWeb do
     pipe_through :browser
 
-    live "/", HomeLive
+    live "/", NFCLive
+    live "/home", HomeLive
     live "/dashboard", DashboardLive
     live "/gpio", GPIOLive
     get "/loading", LoadingController, :show
